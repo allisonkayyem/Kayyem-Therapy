@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calm Path Therapy – Schedule a Session</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <!-- Site Header -->
+  <header>
+    <h1>Calm Path Therapy</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/bio/">About the Therapist</a></li>
+        <li><a href="/schedule/">Schedule a Session</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h2>Schedule a Session</h2>
+      <p>
+        Use the form below to request an appointment. Once submitted, you will receive
+        an email to confirm your time and complete any necessary paperwork.
+      </p>
+    </section>
+
+    <section>
+      <h3>Appointment Request Form (Static Placeholder)</h3>
+      <p>
+        This is a placeholder scheduling form. Later, you can integrate a real
+        scheduling system (e.g., Calendly, SimplePractice, Acuity) or build your own
+        backend.
+      </p>
+
+      <form>
+        <div>
+          <label for="full-name">Full Name:</label><br />
+          <input type="text" id="full-name" name="full-name" required />
+        </div>
+
+        <div>
+          <label for="email">Email:</label><br />
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div>
+          <label for="phone">Phone:</label><br />
+          <input type="tel" id="phone" name="phone" />
+        </div>
+
+        <div>
+          <label for="preferred-date">Preferred Date:</label><br />
+          <input type="date" id="preferred-date" name="preferred-date" />
+        </div>
+
+        <div>
+          <label for="preferred-time">Preferred Time:</label><br />
+          <input type="time" id="preferred-time" name="preferred-time" />
+        </div>
+
+        <div>
+          <label for="session-type">Session Type:</label><br />
+          <select id="session-type" name="session-type">
+            <option value="">-- Please choose an option --</option>
+            <option value="consult">15-minute consultation (phone/video)</option>
+            <option value="individual">Individual therapy – 50 minutes</option>
+            <option value="extended">Extended session – 75 minutes</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="notes">Anything you’d like me to know before we meet?</label><br />
+          <textarea id="notes" name="notes" rows="5"></textarea>
+        </div>
+
+        <div>
+          <button type="submit">Request Appointment</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Calm Path Therapy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
