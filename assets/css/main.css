@@ -3220,3 +3220,17 @@ input, select, textarea {
 			}
 
 	}
+#intro-text {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* collapsed state = approx 3 lines */
+#intro-text.collapsed {
+  max-height: 5.5em;   /* ~3 lines on your font scale */
+}
+
+/* expanded state */
+#intro-text.expanded {
+  max-height: 1000px;  /* enough to show full text */
+}

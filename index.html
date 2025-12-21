@@ -19,9 +19,10 @@
 
 			<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
 
-			<h1><strong>Allison Kayyem</strong>, 
+			<h1><strong>Allison Kayyem</strong>,
 				<br />licensed therapist<br />
-				located in beautiful Colorado.</h1>
+				located in beautiful Colorado.
+			</h1>
 		</div>
 	</header>
 
@@ -35,17 +36,23 @@
 				<h2>Welcome to Kayyem Therapy</h2>
 			</header>
 
-			<p>My approach is integrative and collaborative. Depending on your needs, I may draw from CBT, DBT, Trauma Informed Care, Gottman Method, Narrative work, and strengths-based interventions. Therapy is tailored to you—there’s no one-size-fits-all approach. I work with adults and couples who feel stuck in patterns they can’t quite untangle on their own. Therapy with me is collaborative, grounded, and focused on
+			<p id="intro-text" class="collapsed">
+				My approach is integrative and collaborative. Depending on your needs, I may draw from CBT, DBT, Trauma
+				Informed Care, Gottman Method, Narrative work, and strengths-based interventions. Therapy is tailored to
+				you—there’s no one-size-fits-all approach. I work with adults and couples who feel stuck in patterns
+				they can’t quite untangle on their own. Therapy with me is collaborative, grounded, and focused on
 				helping you understand yourself with more clarity and compassion. I’m a Licensed Social Worker who
 				believes you are the expert on your own life. My role is to walk alongside you—helping identify
 				patterns, explore what’s beneath the surface, and create space for meaningful change. I aim to offer a
 				calm, nonjudgmental environment where you don’t have to perform or have it all figured out. I am a
 				Licensed Social Worker (LSW) in the state of Colorado and practice under clinical supervision as
-				required by state law.</p>
+				required by state law.
+			</p>
 
 			<ul class="actions">
-				<li><a href="#" class="button">Learn More</a></li>
+				<li><a id="toggle-intro" class="button">Learn More</a></li>
 			</ul>
+
 
 		</section>
 
@@ -61,8 +68,8 @@
 						<a href="images/fulls/01.jpg" class="image fit thumb">
 							<img src="images/thumbs/01.jpg" alt="" />
 						</a>
-							<h3>Individual therapy (in-person and online)</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+						<h3>Individual therapy (in-person and online)</h3>
+						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
 					</div>
 				</article>
 
@@ -94,7 +101,8 @@
 		<section id="three">
 			<h2>Get Started</h2>
 
-			<p>Not sure if therapy is right for you? Book a free 15-minute consultation to ask questions and see if we’re a good fit.</p>
+			<p>Not sure if therapy is right for you? Book a free 15-minute consultation to ask questions and see if
+				we’re a good fit.</p>
 
 			<div class="row">
 				<div class="col-8 col-12-small">
@@ -172,6 +180,24 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const text = document.getElementById("intro-text");
+			const btn = document.getElementById("toggle-intro");
+
+			btn.addEventListener("click", function () {
+				const expanded = text.classList.toggle("expanded");
+
+				if (expanded) {
+					text.classList.remove("collapsed");
+					btn.textContent = "Show Less";
+				} else {
+					text.classList.add("collapsed");
+					btn.textContent = "Learn More";
+				}
+			});
+		});
+	</script>
 
 </body>
 
