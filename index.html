@@ -31,11 +31,16 @@
 
 		<!-- Top Navigation -->
     <nav class="top-nav">
+		<!-- Hamburger button -->
+		<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+			<span></span>
+		</button>
+
+		<!-- Nav links -->
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about/index.html">About Me</a></li>
-			            <li><a href="schedule/index.html">Scheduling</a></li>
-
+			<li><a href="schedule/index.html">Scheduling</a></li>
         </ul>
     </nav>
 
@@ -117,7 +122,7 @@
 						</li>
 						<li>
 							<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-							(512) 934-3533
+							(719) 445-9294
 						</li>
 						<li>
 							<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
@@ -152,6 +157,27 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const nav = document.querySelector(".top-nav");
+        const toggle = document.querySelector(".nav-toggle");
+
+        if (!nav || !toggle) return;
+
+        toggle.addEventListener("click", function () {
+            const isOpen = nav.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        // Optional: close menu when a link is clicked (mobile)
+        nav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                nav.classList.remove("open");
+                toggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    });
+</script>
 
 </body>
 
