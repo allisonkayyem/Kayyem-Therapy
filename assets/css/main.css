@@ -2244,7 +2244,8 @@ input[type="radio"]+label:before {
 }
 
 .image.avatar {
-	border-radius: 100%;
+	border-radius: 0%;
+	width: 10em;
 }
 
 .image.avatar:before {
@@ -2252,7 +2253,7 @@ input[type="radio"]+label:before {
 }
 
 .image.avatar img {
-	border-radius: 100%;
+	border-radius: 0%;
 	width: 100%;
 }
 
@@ -2716,17 +2717,22 @@ input[type="button"]:disabled,
 
 	/* pin the header on the left */
 	position: fixed;
-	top: 0;
-	left: 0;
-	width: 35%;
-	height: 105vh;
-	/* full viewport height, no flex shrink */
-	padding: 1em 1em;
-	text-align: right;
+	left: auto;
+		padding: 4em 4em;
+		position: relative;
+		text-align: center;
+		top: auto;
+		
+		height: 50vh;
+		width: 100%;
+
+		display: block;
 
 	backface-visibility: hidden;
 	transform: translateZ(0);
 	will-change: transform;
+
+	
 }
 
 #header>* {
@@ -3129,7 +3135,7 @@ body.is-touch .poptrox-popup .closer {
 
 	#header {
 		padding: 1em 1em 4em 1em;
-		width: 30%;
+		width: 100%;
 	}
 
 	#header h1 {
