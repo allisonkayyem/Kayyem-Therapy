@@ -3257,7 +3257,9 @@ body.is-touch .poptrox-popup .closer {
 /* Small */
 
 @media screen and (max-width: 736px) {
-
+	#header>.inner {
+		margin: 0;
+	}
 	/* Basic */
 
 	h1 {
