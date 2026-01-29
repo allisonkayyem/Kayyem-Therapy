@@ -1203,7 +1203,9 @@ ul.icons li .icon:before { font-size: 1.5em; }
   .row > .off-12-xsmall { margin-left: 100%; }
 }
 
-
+.button {
+	margin-bottom: 1rem;
+}
 
 .scheduler-modal {
   position: fixed;
