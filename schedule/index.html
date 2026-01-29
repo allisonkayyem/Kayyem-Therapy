@@ -77,6 +77,28 @@
                 Reaching out can often feel like the hardest step. If you are curious about therapy with me, please feel
                 free to email me and set up a 15 minute consultation to see if working together would be a good fit!
             </p>
+
+            <button class="button primary" type="button" id="open-scheduler">
+				Book Session
+			</button>
+
+			<div class="scheduler-modal" id="scheduler-modal" aria-hidden="true" role="dialog"
+				aria-label="Online scheduling">
+				<div class="scheduler-backdrop" data-close="true"></div>
+
+				<div class="scheduler-sheet" role="document">
+					<div class="scheduler-bar">
+						<button class="scheduler-close" type="button" data-close="true" aria-label="Close scheduling">
+							Close
+						</button>
+					</div>
+
+					<iframe id="scheduler-iframe" title="Online Scheduling" src="about:blank" loading="lazy"
+						referrerpolicy="no-referrer"></iframe>
+				</div>
+			</div>
+
+
         </section>
 
     </div>
@@ -122,6 +144,43 @@
             });
         });
     </script>
+    <script>
+		(function () {
+			const SCHEDULER_URL =
+				"https://mindfultherapygroup.com/find-a-provider/?providerId=4339273000398490057&providerName=allie-kayyem";
+
+			const openBtn = document.getElementById("open-scheduler");
+			const modal = document.getElementById("scheduler-modal");
+			const iframe = document.getElementById("scheduler-iframe");
+
+			if (!openBtn || !modal || !iframe) return;
+
+			function openModal() {
+				iframe.src = SCHEDULER_URL;
+				modal.classList.add("is-open");
+				modal.setAttribute("aria-hidden", "false");
+				document.body.style.overflow = "hidden";
+			}
+
+			function closeModal() {
+				modal.classList.remove("is-open");
+				modal.setAttribute("aria-hidden", "true");
+				document.body.style.overflow = "";
+				iframe.src = "about:blank";
+			}
+
+			openBtn.addEventListener("click", openModal);
+
+			modal.addEventListener("click", (e) => {
+				const t = e.target;
+				if (t && t.getAttribute && t.getAttribute("data-close") === "true") closeModal();
+			});
+
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+			});
+		})();
+	</script>
 
 </body>
 
