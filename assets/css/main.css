@@ -743,7 +743,7 @@ ul.icons li .icon:before { font-size: 1.5em; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(1rem, 3vw, 2.5rem);
+gap: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 #header .header-copy {
@@ -754,8 +754,8 @@ ul.icons li .icon:before { font-size: 1.5em; }
 #header .header-headshot {
   margin: 0;
   flex: 0 0 auto;
-    width: clamp(150px, 26vw, 208px);
-    height: clamp(150px, 26vw, 208px);
+    width: clamp(160px, 42vw, 220px);
+    height: clamp(160px, 42vw, 220px);
   border-radius: 999px;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.14);
@@ -769,18 +769,27 @@ ul.icons li .icon:before { font-size: 1.5em; }
   object-fit: cover;
 }
 
+@media screen and (min-width: 1100px) {
+  #header .header-headshot {
+    margin-left: -0.75rem;
+  }
+}
+
+
 @media screen and (max-width: 980px) {
   #header .header-hero {
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     text-align: center;
+    gap: 1.25rem;
   }
 
   #header .header-headshot {
-    width: clamp(150px, 26vw, 208px);
-    height: clamp(150px, 26vw, 208px);
+    width: clamp(160px, 42vw, 220px);
+    height: clamp(160px, 42vw, 220px);
   }
 }
+
 
 #header h1 {
   color: rgba(255, 255, 255, 0.85);
