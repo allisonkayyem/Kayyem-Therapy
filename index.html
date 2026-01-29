@@ -16,37 +16,43 @@
 	<!-- Header -->
 	<header id="header">
 
-		 <nav class="top-nav">
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span>
-            </button>
+		<nav class="top-nav">
+			<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+				<span></span>
+			</button>
 
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about/index.html">About Me</a></li>
-                <li><a href="schedule/index.html">Scheduling</a></li>
-            </ul>
-        </nav>
+			<ul>
+				<li><a href="index.html" class="active">Home</a></li>
+				<li><a href="about/index.html">About Me</a></li>
+				<li><a href="schedule/index.html">Scheduling</a></li>
+			</ul>
+		</nav>
+
 		<div class="inner">
-       
-			<h1><strong>Allison Kayyem</strong>,
-				<br />licensed therapist<br />
-				located in beautiful Colorado.
-			</h1>
+			<div class="header-hero">
+				<div class="header-copy">
+					<h1>
+						<strong>Allison Kayyem</strong>,<br />
+						licensed therapist<br />
+						located in beautiful Colorado.
+					</h1>
+				</div>
 
-		
-
+				<!-- Headshot -->
+				<figure class="header-headshot" aria-hidden="false">
+					<img src="images/headshot.jpg" alt="Headshot of Allison Kayyem" loading="eager" decoding="async" />
+				</figure>
+			</div>
 		</div>
+
 	</header>
 
 	<!-- Main -->
 	<div id="main">
 
-
-
 		<!-- One -->
 		<section id="one">
-						<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+			<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
 
 			<header class="major">
 				<h2>Welcome to Kayyem Therapy</h2>
@@ -116,20 +122,19 @@
 				<div class="col-4 col-12-small">
 					<ul class="labeled-icons">
 						<li>
-							<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-							8700 Turnpike Dr Suite 400 <br />
-Westminster, CO 80031 <br />
-							United States
+							<span class="icon solid fa-home"></span>
+							<span>8700 Turnpike Dr Suite 400<br>Westminster, CO 80031<br>United States</span>
 						</li>
 						<li>
-							<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-							(719) 445-9294
+							<span class="icon solid fa-mobile-alt"></span>
+							<span>(719) 445-9294</span>
 						</li>
 						<li>
-							<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+							<span class="icon solid fa-envelope"></span>
 							<a href="mailto:kayyemtherapy@gmail.com">kayyemtherapy@gmail.com</a>
 						</li>
 					</ul>
+
 				</div>
 			</div>
 		</section>
@@ -142,7 +147,7 @@ Westminster, CO 80031 <br />
 		<div class="inner">
 			<ul class="icons">
 
-				<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				<li><a href="mailto:kayyemtherapy@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 			</ul>
 
 			<ul class="copyright">
@@ -152,33 +157,26 @@ Westminster, CO 80031 <br />
 	</footer>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const nav = document.querySelector(".top-nav");
-        const toggle = document.querySelector(".nav-toggle");
-
-        if (!nav || !toggle) return;
-
-        toggle.addEventListener("click", function () {
-            const isOpen = nav.classList.toggle("open");
-            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        });
-
-        // Optional: close menu when a link is clicked (mobile)
-        nav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-                nav.classList.remove("open");
-                toggle.setAttribute("aria-expanded", "false");
-            });
-        });
-    });
-</script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const nav = document.querySelector(".top-nav");
+			const toggle = document.querySelector(".nav-toggle");
+			if (!nav || !toggle) return;
+			toggle.addEventListener("click", function () {
+				const isOpen = nav.classList.toggle("open");
+				toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+			});
+			nav.querySelectorAll("a").forEach(function (link) {
+				link.addEventListener("click", function () {
+					nav.classList.remove("open");
+					toggle.setAttribute("aria-expanded", "false");
+				});
+			});
+		});
+	</script>
 
 </body>
 
