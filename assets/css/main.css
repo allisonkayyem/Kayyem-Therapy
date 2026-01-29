@@ -172,8 +172,8 @@ sup { font-size: 0.8em; position: relative; top: -0.5em; }
 
 hr {
   border: 0;
-  border-bottom: solid 2px var(--border);
-  margin: 2em 0;
+  border-bottom: solid 1px var(--border);
+  margin: 1em 0;
 }
 hr.major { margin: 3em 0; }
 
@@ -741,9 +741,9 @@ ul.icons li .icon:before { font-size: 1.5em; }
 
 #header .header-hero {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 #header .header-copy {
@@ -775,10 +775,9 @@ gap: clamp(0.75rem, 1.5vw, 1.5rem);
   }
 }
 
-
 @media screen and (max-width: 980px) {
   #header .header-hero {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     text-align: center;
     gap: 1.25rem;
@@ -790,13 +789,12 @@ gap: clamp(0.75rem, 1.5vw, 1.5rem);
   }
 }
 
-
 #header h1 {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-  line-height: 1.35;
-  margin: 0rem;
-  max-width: 32ch;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+  line-height: 1.15;
+  margin: 0;
+  max-width: none;
 }
 
 #header strong,
@@ -804,6 +802,93 @@ gap: clamp(0.75rem, 1.5vw, 1.5rem);
 
 #header h2, #header h3, #header h4, #header h5, #header h6 {
   color: #fff;
+}
+
+#header h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Header subtitle (default: stacked) */
+#header .header-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+/* =========================================================
+   Header icon meta list (like PsychologyToday-style rows)
+   ========================================================= */
+
+#header .header-meta-list {
+  margin: 0.85rem 0 0 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  /* spacing between items */
+  gap: 0.75rem 1.25rem;
+}
+
+#header .header-meta-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  /* text treatment like your screenshot */
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.92rem;
+  line-height: 1.2;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Icon size + color */
+#header .header-meta-list li .icon {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  width: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: make keywords pop slightly */
+#header .header-meta-list li .meta-text strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+/* Add divider bars between items (desktop/tablet) */
+@media screen and (min-width: 737px) {
+  #header .header-meta-list li:not(:last-child)::after {
+    content: "|";
+    margin-left: 1.25rem;
+    color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+/* Mobile: tighter + no forced dividers (wrap nicely) */
+@media screen and (max-width: 736px) {
+  #header .header-meta-list {
+    gap: 0.6rem 1rem;
+  }
+
+  #header .header-meta-list li {
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+  }
+
+  #header .header-meta-list li::after {
+    content: none;
+  }
 }
 
 /* Top Nav (single, non-duplicated implementation) */
@@ -1035,7 +1120,7 @@ gap: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 @media screen and (max-width: 980px) {
-  #header { text-align: center; }
+  #header h1 { text-align: left; }
   #header h1 { max-width: none; }
   #main { padding: 1.5em var(--content-pad); }
 }
@@ -1052,88 +1137,6 @@ gap: clamp(0.75rem, 1.5vw, 1.5rem);
     line-height: 2.25em;
     margin-left: 0;
     padding-left: 0;
-  }
-}
-
-
-/* =========================================
-   iOS "Liquid Glass" primitives
-   ========================================= */
-
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.14);
-  --glass-bg-strong: rgba(255, 255, 255, 0.22);
-  --glass-stroke: rgba(255, 255, 255, 0.28);
-  --glass-stroke-soft: rgba(255, 255, 255, 0.16);
-  --glass-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
-  --glass-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.12);
-  --glass-radius: 18px;
-}
-
-/* Main glass surface */
-.glass {
-  position: relative;
-  border-radius: var(--glass-radius);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-stroke-soft);
-
-  /* the "frost" */
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
-
-  box-shadow: var(--glass-shadow-soft);
-  overflow: hidden;
-}
-
-/* Specular highlight (top sheen) */
-.glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.35),
-      rgba(255, 255, 255, 0.08) 40%,
-      rgba(255, 255, 255, 0.02) 70%,
-      rgba(255, 255, 255, 0.00)
-    );
-  pointer-events: none;
-}
-
-/* Inner edge glow */
-.glass::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: inset 0 0 0 1px var(--glass-stroke);
-  pointer-events: none;
-}
-
-/* Optional: "elevated" glass card */
-.glass-elevated {
-  background: var(--glass-bg-strong);
-  box-shadow: var(--glass-shadow);
-}
-
-/* Subtle hover lift (desktop) */
-@media (hover: hover) {
-  .glass-hover {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    will-change: transform;
-  }
-
-  .glass-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
-  }
-}
-
-/* Optional: reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .glass-hover {
-    transition: none !important;
   }
 }
 
